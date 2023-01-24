@@ -31,6 +31,13 @@
         }
         updateSize();
         window.addEventListener("resize", updateSize);
+
+        $(function () {
+            var widthRatio = $('#frameContainer').width() / $(window).width();
+            $(window).resize(function () {
+                $('#frameContainer').css({ width: $(window).width() * widthRatio });
+            });
+        });
     </script>
 
 </body>
