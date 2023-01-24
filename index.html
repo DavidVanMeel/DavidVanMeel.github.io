@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <h1>Hello World</h1>
-    <p>I like to fry beans</p>
+    <body>
+        <h1>Hello World</h1>
+        <p>I like to fry beans</p>
+    
+        <p>Resize the browser window to fire the <code>resize</code> event.</p>
+        <p>Window height: <span id="Window.innerHeight"></span></p>
+        <p>Window width: <span id="Window.innerWidth"></span></p>
+    
+        console.log(window.innerWidth);
+        
+        <iframe width="960px" height="960px" src="https://file.garden/YU984MktiBxoiDl0/clara%20beatemup/clara_beatemup/index.html" class="major" data-ruffle-polyfilled=""></iframe>
 
-    <p>Resize the browser window to fire the <code>resize</code> event.</p>
-    <p>Window height: <span id="Window.innerHeight"></span></p>
-    <p>Window width: <span id="Window.innerWidth"></span></p>
 
-    console.log(window.innerWidth);
+        <script>
+            const heightOutput = document.querySelector("#height");
+            const widthOutput = document.querySelector("#width");
+    
+            function updateSize()
+            {
+                heightOutput.textContent = window.innerHeight;
+                widthOutput.textContent = window.innerWidth;
+            }
+            updateSize();
+            window.addEventListener("resize", updateSize);
+        </script>
 
-    <iframe width="960px" height="960px" src="https://file.garden/YU984MktiBxoiDl0/clara%20beatemup/clara_beatemup/index.html" class="major" data-ruffle-polyfilled=""></iframe>
-</body>
+    </body>
+
 </html>
