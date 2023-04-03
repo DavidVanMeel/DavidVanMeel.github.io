@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <!-- the actual content! -->
-    <div id="frameContainer">
-        <iframe src="https://file.garden/Y-ojXnWmqxkt-lbH/digitaalCV/CVbuild/index.html" class="major" id="frame2" data-ruffle-polyfilled=""></iframe>
-    </div>
+    <head>
+        <style>
+            #frameContainer {
+                margin: 0px;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                bottom: 0px;
+                min-width: 200px;
+                border: none;
+            }
 
-    <style>
-        #frameContainer {
-            margin: 0px;
-            position: fixed;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            bottom: 0px;
-            min-width: 200px;
-            border: none;
-        }
+            iframe#frame2 {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="h1"></h1>
 
-        iframe#frame2 {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-    </style>
+        <!-- code! -->
+        <script>
+            //initialize variables
 
-    <!-- code! -->
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
-    </script>
+            //laad taalinstellingen, als die in localStorage staan
+            function LoadLanguageSetting()
+            {
+                if (localStorage.languageSet == null)
+                {
+                    localStorage.languageSet = -1;
+                }
+
+                let language = localStorage.languageSet;
+                return language;
+            }
 
 
-    <script>
-        const heightOutput = document.querySelector("#height");
-        const widthOutput = document.querySelector("#width");
+            //sla taalinstellingen op in localStorage
+            function SaveLanguageSetting(language)
+            {
+                localStorage.language = language;
+            }
 
-        function updateSize() {
-            heightOutput.textContent = window.innerHeight;
-            widthOutput.textContent = window.innerWidth;
-        }
-        updateSize();
-        window.addEventListener("resize", updateSize);
+            document.getElementById("h1").innerText = LoadLanguageSetting();
+        </script>
 
-        $(function () {
-            var widthRatio = $('#frameContainer').width() / $(window).width();
-            $(window).resize(function () {
-                $('#frameContainer').css({ width: $(window).width() * widthRatio });
-            });
-        });
-    </script>
-
-</body>
-
+        <!-- the actual content!-->
+        <div id="frameContainer">
+            <iframe src="https://github.com/DavidVanMeel/cv/blob/main/index.html" class="major" id="frame2" data-ruffle-polyfilled=""></iframe>
+        </div>
+    </body>
 </html>
-
-<!--
-
-<jsFiddle>
-    $(function() {
-        var widthRatio = $('#frameContainer').width() / $(window).width();
-        $(window).resize(function() {
-            $('#frameContainer').css({width: $(window).width() * widthRatio});
-        });
-    });
-</jsFiddle> -->
